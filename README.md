@@ -112,8 +112,10 @@ The server will run at http://localhost:3000.
 ```
 POST /auth/register: Register a new user.
 Request body: { "username": "user", "email": "email@example.com", "password": "password", "role": "user" }
+
 POST /auth/login: Log in and receive a JWT token.
 Request body: { "email": "email@example.com", "password": "password" }
+
 Response: { "token": "JWT_TOKEN_HERE" }
 ```
 ### User Routes
@@ -124,13 +126,12 @@ Protected by the authenticate middleware.
 ### Admin Routes
 ```
 POST /admin/create-role: Create a new role.
-
 Request body: { "name": "admin" }
+
 POST /admin/assign-role: Assign a role to a user.
-
 Request body: { "userId": 1, "roleId": 2 }
-POST /admin/assign-permission: Assign a permission to a role.
 
+POST /admin/assign-permission: Assign a permission to a role.
 Request body: { "roleId": 1, "permissionId": 2 }
 ```
 ### Authorization Middleware
